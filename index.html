@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReyMIDI KeyLab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div>
+            <h1>ReyMIDI KeyLab</h1>
+            <p>MIDI &amp; HID Diagnostic Suite</p>
+        </div>
+       
+<div class="connection-status" id="connectionStatus">
+    MIDI: Belum terhubung
+</div>
+
+    </header>
+
+    <main class="app-main">
+
+        <section class="panel piano-panel">
+            <div class="panel-heading">
+                <h2>Virtual Piano</h2>
+                <span>Rentang A0 – C8</span>
+            </div>
+            <div id="piano" class="piano">
+                Piano akan ditampilkan di sini.
+            </div>
+        </section>
+
+        <div class="bottom-panels">
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>MIDI LOG</h2>
+                    <button id="clearMidiLog">Clear</button>
+                </div>
+                <div id="midiLog" class="log-area">
+                    Menunggu pesan MIDI...
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>HID Keyboard Test</h2>
+                    <span id="hidStatus">Menunggu input</span>
+                </div>
+                <div id="hidKeys" class="hid-keys">
+                    Belum ada tombol terdeteksi.
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        REY ENTERTAINMENT
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-main: #0b1020;
+    --bg-panel: #121a2b;
+    --bg-inner: #080e1a;
+    --border: #263651;
+    --blue: #168cff;
+    --blue-light: #58b5ff;
+    --text-main: #e8f1ff;
+    --text-muted: #91a4c2;
+    --green: #45df9b;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    flex: 0 0 66px;
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #10182a;
+    border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 21px;
+    color: var(--blue-light);
+    letter-spacing: 1px;
+}
+
+.app-header p {
+    margin: 3px 0 0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.connection-status {
+    padding: 7px 11px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-inner);
+    color: var(--text-muted);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.app-main {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    padding: 12px 18px;
+    display: grid;
+    grid-template-rows: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 12px;
+}
+
+.panel {
+    min-width: 0;
+    min-height: 0;
+    padding: 12px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-heading {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+.panel-heading h2 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.panel-heading span {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.piano-panel {
+    overflow: hidden;
+}
+
+.piano {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-inner);
+}
+
+.bottom-panels {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+}
+
+.log-area,
+.hid-keys {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-inner);
+    color: var(--text-muted);
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+button {
+    padding: 5px 11px;
+    border: 1px solid #285a8d;
+    border-radius: 5px;
+    background: #142b47;
+    color: var(--blue-light);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b3b60;
+}
+
+footer {
+    flex: 0 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    color: #627692;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+    .app-header {
+        padding: 8px 12px;
+    }
+
+    .app-header h1 {
+        font-size: 17px;
+    }
+
+    .app-main {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .bottom-panels {
+        gap: 8px;
+    }
+
+    .panel {
+        padding: 8px;
+    }
+}
+
+.virtual-keyboard {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #080e1a;
+}
+
+.piano-key {
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.white-key {
+    background: linear-gradient(to right, #ffffff, #e3e8ef);
+    border: 1px solid #9ba8b9;
+    border-radius: 0 0 4px 4px;
+    color: #536176;
+    font-size: 9px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.black-key {
+    background: linear-gradient(to bottom, #35445a, #101827 75%);
+    border: 1px solid #050912;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+.piano-key.active {
+    background: #168cff !important;
+    color: #ffffff;
+}
